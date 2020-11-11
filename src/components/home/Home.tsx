@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { loadUpcomingMovies } from '../store/movies/movies.action';
-import { upcomingMovies } from '../store/movies/movies.selector';
-import { RootState } from '../store/root-reducer.reducer';
+import { loadUpcomingMovies } from '../../store/movies/movies.action';
+import { upcomingMovies } from '../../store/movies/movies.selector';
+import { RootState } from '../../store/root-reducer.reducer';
+import Search from '../search/Search';
 
 export interface MainProps {
     upcomingMovies: any;
@@ -16,6 +17,7 @@ class Home extends React.Component<MainProps> {
     render() {
         return (
             <div>
+                <Search />
                 {this.props.upcomingMovies.map((movie, i) => {
                     return (<img key={i} src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}></img>)
                 })}

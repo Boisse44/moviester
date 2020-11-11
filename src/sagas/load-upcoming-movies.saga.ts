@@ -1,5 +1,5 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
-import { getUpcomingMovies } from '../services/movies.service';
+import { getUpcomingMovies } from '../services/tmdb-api.service.';
 import { loadUpcomingMoviesCompleted, LOAD_UPCOMING_MOVIES } from '../store/movies/movies.action';
 
 function* fetchUpcomingMovies(action) {
