@@ -1,21 +1,18 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-
-  Route, Switch
+  Route,
+  Switch
 } from "react-router-dom";
 import './App.scss';
 import Home from './components/home/Home';
+import Movie from './components/movie/Movies';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/movie" component={Movie} />
+    </Switch>
   );
 }
 
