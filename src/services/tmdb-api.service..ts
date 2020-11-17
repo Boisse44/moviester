@@ -17,11 +17,15 @@ instance.defaults.params = {};
 instance.defaults.params['api_key'] = apiKey;
 instance.defaults.params['language'] = language;
 
-// Endpoints
+// Movies
 export const getUpcomingMovies = (): Promise<AxiosResponse> => {
     return instance.get(`${baseUrl}${movieResourceUrl}/upcoming`);
 }
+export const getMovie = (id: string): Promise<AxiosResponse> => {
+    return instance.get(`${baseUrl}${movieResourceUrl}/${id}?append_to_response=videos,images,reviews&include_image_language=en,null`);
+}
 
+// Search
 export const searchMulti = (keyword: string): Promise<AxiosResponse> => {
     return instance.get(`${baseUrl}${searchResourceUrl}/multi?query=${keyword}`);
 

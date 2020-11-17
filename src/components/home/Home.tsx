@@ -15,7 +15,7 @@ export interface MainProps {
 
 class Home extends React.Component<MainProps> {
     routeChange = (movie: any) => {
-        this.props.history.push(`/movie/`);
+        this.props.history.push(`/movie/${movie.id}`);
     }
     componentWillMount() {
         this.props.loadUpcomingMovies();

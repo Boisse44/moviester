@@ -11,7 +11,11 @@ function App() {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/movie" component={Movie} />
+      <Route exact path="/movie/:id" render={(matchProps) =>
+        <Movie
+          {...matchProps}
+        />
+      } />
     </Switch>
   );
 }
