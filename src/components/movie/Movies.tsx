@@ -4,6 +4,7 @@ import { RouteProps } from 'react-router';
 import { getMovie } from '../../store/movies/movies.action';
 import { currentMovie } from '../../store/movies/movies.selector';
 import { RootState } from '../../store/root-reducer.reducer';
+import styles from './Movies.module.scss';
 
 export interface MovieProps {
     getMovie: any;
@@ -16,7 +17,8 @@ class Movie extends React.Component<RouteProps> {
     }
     render() {
         return (
-            <div>
+            <div className={styles.movie__container}
+                style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${this.props.currentMovie?.images.backdrops[0].file_path})` }}>
                 <div>{this.props.currentMovie?.original_title}</div>
             </div>
         )

@@ -9,14 +9,16 @@ import Movie from './components/movie/Movies';
 
 function App() {
   return (
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/movie/:id" render={(matchProps) =>
-        <Movie
-          {...matchProps}
-        />
-      } />
-    </Switch>
+    <div className="app">
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/movie/:id" render={(matchProps) =>
+          <Movie
+            {...matchProps}
+          />
+        } />
+      </Switch>
+    </div>
   );
 }
 
