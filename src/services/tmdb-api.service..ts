@@ -22,7 +22,7 @@ export const getUpcomingMovies = (): Promise<AxiosResponse> => {
     return instance.get(`${baseUrl}${movieResourceUrl}/upcoming`);
 }
 export const getMovie = (id: string): Promise<AxiosResponse> => {
-    return instance.get(`${baseUrl}${movieResourceUrl}/${id}?append_to_response=videos,images,reviews&include_image_language=en,null`);
+    return instance.get(`${baseUrl}${movieResourceUrl}/${id}?append_to_response=credits,videos,images,reviews&include_image_language=en,null`);
 }
 
 // Search
