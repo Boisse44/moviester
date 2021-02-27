@@ -1,6 +1,7 @@
 .movie__container {
     position: relative;
     display: flex;
+    flex-direction: column;
     color: white;
     background-color: black;
     height: 100%;
@@ -26,4 +27,17 @@
     flex-direction: column;
     max-width: 30%;
     margin-left: 50px;
+}
+
+.cast__image {
+    width: 100px;
+}
+
+.cast {
+    display: flex;
+    flex-direction: column;
+}
+
+.cast__list {
+    display: flex;
 }
