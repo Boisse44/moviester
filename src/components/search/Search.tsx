@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { RootState } from '../../store/root-reducer.reducer';
 import { search } from '../../store/search/search.action';
 import { searchResults } from '../../store/search/search.selector';
+import SearchResult from './SearchResult';
 
 interface MainProps {
     searchResults: any;
     searchQuery: any,
 }
-
 
 class Search extends React.Component<MainProps> {
     render() {
@@ -16,7 +16,7 @@ class Search extends React.Component<MainProps> {
             <div>
                 <input onChange={(event) => this.props.searchQuery(event.target.value)}></input>
                 {this.props.searchResults.map((result, i) => {
-                    return (<div key={i}>{result.original_name}</div>)
+                    return (<SearchResult index={i} searchResult={result} />)
                 })}
             </div>
         )
