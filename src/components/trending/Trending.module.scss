@@ -1,0 +1,12 @@
+.trendingItem__container {
+    background-size: cover;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.2);
+        transition: all 0.2s ease-in-out;
+    }
+}
+.trendingItem__image {
+    width: 100%;
+    visibility: hidden;
+}

@@ -8,6 +8,7 @@ const language: string = 'en-US'
 // Ressources URLs
 const movieResourceUrl: string = '/movie';
 const searchResourceUrl: string = '/search';
+const trendingResourceUrl: string = '/trending';
 
 // Axios instance
 const instance = axios.create({
@@ -24,9 +25,11 @@ export const getUpcomingMovies = (): Promise<AxiosResponse> => {
 export const getMovie = (id: string): Promise<AxiosResponse> => {
     return instance.get(`${baseUrl}${movieResourceUrl}/${id}?append_to_response=credits,videos,images,reviews&include_image_language=en,null`);
 }
+export const getTrendingMovies = (): Promise<AxiosResponse> => {
+    return instance.get(`${baseUrl}${trendingResourceUrl}/movie/week`);
+}
 
 // Search
 export const searchMulti = (keyword: string): Promise<AxiosResponse> => {
     return instance.get(`${baseUrl}${searchResourceUrl}/multi?query=${keyword}`);
-
 }

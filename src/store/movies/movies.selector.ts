@@ -12,6 +12,15 @@ export const upcomingMovies = createSelector<
         (movies) => movies.upcomingMovies,
     );
 
+
+export const trendingMovies = createSelector<
+    RootState,
+    MoviesState,
+    any[]>(
+        movies,
+        (movies) => movies.trendingMovies,
+    );
+
 export const currentMovie = createSelector<
     RootState,
     MoviesState,

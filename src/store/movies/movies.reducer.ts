@@ -1,8 +1,9 @@
-import { GET_MOVIE, GET_MOVIE_COMPLETED, LOAD_UPCOMING_MOVIES, LOAD_UPCOMING_MOVIES_COMPLETED, MoviesActionTypes } from './movies.action'
+import { GET_MOVIE, GET_MOVIE_COMPLETED, LOAD_TRENDING_MOVIES, LOAD_TRENDING_MOVIES_COMPLETED, LOAD_UPCOMING_MOVIES, LOAD_UPCOMING_MOVIES_COMPLETED, MoviesActionTypes } from './movies.action'
 import { MoviesState } from './movies.state'
 
 const initialState: MoviesState = {
     upcomingMovies: [],
+    trendingMovies: [],
     currentMovie: null,
 }
 
@@ -20,6 +21,16 @@ export function moviesReducer(
             return {
                 ...state,
                 upcomingMovies: action.payload.movies
+            }
+        case LOAD_TRENDING_MOVIES:
+            return {
+                ...state,
+                trendingMovies: []
+            }
+        case LOAD_TRENDING_MOVIES_COMPLETED:
+            return {
+                ...state,
+                trendingMovies: action.payload.movies
             }
         case GET_MOVIE:
             return {

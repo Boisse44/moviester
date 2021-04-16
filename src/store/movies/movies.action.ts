@@ -1,5 +1,7 @@
 export const LOAD_UPCOMING_MOVIES = 'LOAD_UPCOMING_MOVIES'
 export const LOAD_UPCOMING_MOVIES_COMPLETED = 'LOAD_UPCOMING_MOVIES_COMPLETED'
+export const LOAD_TRENDING_MOVIES = 'LOAD_TRENDING_MOVIES'
+export const LOAD_TRENDING_MOVIES_COMPLETED = 'LOAD_TRENDING_MOVIES_COMPLETED'
 export const GET_MOVIE = 'GET_MOVIE';
 export const GET_MOVIE_COMPLETED = 'GET_MOVIE_COMPLETED';
 
@@ -9,6 +11,17 @@ interface LoadUpcomingMoviesAction {
 
 interface LoadUpcomingMoviesCompletedAction {
     type: typeof LOAD_UPCOMING_MOVIES_COMPLETED
+    payload: {
+        movies: any[]
+    }
+}
+
+interface LoadTrendingMoviesAction {
+    type: typeof LOAD_TRENDING_MOVIES
+}
+
+interface LoadTrendingMoviesCompletedAction {
+    type: typeof LOAD_TRENDING_MOVIES_COMPLETED
     payload: {
         movies: any[]
     }
@@ -42,6 +55,21 @@ export function loadUpcomingMoviesCompleted(movies: any[]): MoviesActionTypes {
     }
 }
 
+export function loadTrendingMovies(): MoviesActionTypes {
+    return {
+        type: LOAD_TRENDING_MOVIES,
+    }
+}
+
+export function loadTrendingMoviesCompleted(movies: any[]): MoviesActionTypes {
+    return {
+        type: LOAD_TRENDING_MOVIES_COMPLETED,
+        payload: {
+            movies
+        }
+    }
+}
+
 export function getMovie(id: string): MoviesActionTypes {
     return {
         type: GET_MOVIE,
@@ -58,4 +86,4 @@ export function getMovieCompleted(movie: any): MoviesActionTypes {
     }
 }
 
-export type MoviesActionTypes = LoadUpcomingMoviesAction | LoadUpcomingMoviesCompletedAction | GetMovieAction | GetMovieCompletedAction
+export type MoviesActionTypes = LoadUpcomingMoviesAction | LoadUpcomingMoviesCompletedAction | LoadTrendingMoviesAction | LoadTrendingMoviesCompletedAction | GetMovieAction | GetMovieCompletedAction
