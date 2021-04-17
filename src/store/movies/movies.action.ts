@@ -5,7 +5,7 @@ export const LOAD_TRENDING_MOVIES_COMPLETED = 'LOAD_TRENDING_MOVIES_COMPLETED'
 export const GET_MOVIE = 'GET_MOVIE';
 export const GET_MOVIE_COMPLETED = 'GET_MOVIE_COMPLETED';
 
-interface LoadUpcomingMoviesAction {
+export interface LoadUpcomingMoviesAction {
     type: typeof LOAD_UPCOMING_MOVIES
 }
 

@@ -9,6 +9,7 @@ const language: string = 'en-US'
 const movieResourceUrl: string = '/movie';
 const searchResourceUrl: string = '/search';
 const trendingResourceUrl: string = '/trending';
+const genreResourceUrl: string = '/genre';
 
 // Axios instance
 const instance = axios.create({
@@ -32,4 +33,9 @@ export const getTrendingMovies = (): Promise<AxiosResponse> => {
 // Search
 export const searchMulti = (keyword: string): Promise<AxiosResponse> => {
     return instance.get(`${baseUrl}${searchResourceUrl}/multi?query=${keyword}`);
+}
+
+// Genre
+export const getGenres = (): Promise<AxiosResponse> => {
+    return instance.get(`${baseUrl}${genreResourceUrl}/movie/list`);
 }

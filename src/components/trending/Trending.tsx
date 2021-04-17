@@ -60,8 +60,17 @@ class Trending extends React.Component<MainProps> {
                 deviceType="desktop">
                 {this.props.trendingMovies.map((movie, i) => {
                     return (
-                        <div key={i} className={styles.trendingItem__container} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.poster_path})` }} onClick={() => this.routeChange(movie)}>
-                            <img className={styles.trendingItem__image} alt="upcoming__image" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}></img>
+                        <div key={i} className={styles.trendingItem__container} onClick={() => this.routeChange(movie)}>
+                            <div className={styles.trendingItem__details}>
+                                <div>
+                                    <span className={styles.tredingItem_star}></span>
+                                    <span>{movie.vote_average}/10</span>
+                                </div>
+                                <span>{movie.title}</span>
+                            </div>
+                            <div className={styles.trendingItem__imageContainer}>
+                                <img className={styles.trendingItem__image} alt="upcoming__image" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}></img>
+                            </div>
                         </div>
                     )
                 })}

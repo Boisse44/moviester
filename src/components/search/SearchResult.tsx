@@ -16,7 +16,7 @@ class SearchResult extends React.Component<SearchResultProps> {
     }
     render() {
         return (
-            <div key={this.props.index} onClick={() => this.routeChange(this.props.searchResult)}>
+            <div key={this.props.index} className={styles.result__container} onClick={() => this.routeChange(this.props.searchResult)}>
                 <span>
                     <img className={styles.result__image} alt="upcoming__image" src={`https://image.tmdb.org/t/p/original${this.props.searchResult.poster_path}`}></img>
                 </span>

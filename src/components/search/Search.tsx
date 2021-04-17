@@ -1,9 +1,12 @@
+import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
 import { RootState } from '../../store/root-reducer.reducer';
 import { search } from '../../store/search/search.action';
 import { searchResults } from '../../store/search/search.selector';
+import styles from './Search.module.scss';
 import SearchResult from './SearchResult';
+
 
 interface MainProps {
     searchResults: any;
@@ -14,10 +17,12 @@ class Search extends React.Component<MainProps> {
     render() {
         return (
             <div>
-                <input onChange={(event) => this.props.searchQuery(event.target.value)}></input>
-                {this.props.searchResults.map((result, i) => {
-                    return (<SearchResult index={i} searchResult={result} />)
-                })}
+                <input className={styles.input} onChange={(event) => this.props.searchQuery(event.target.value)}></input>
+                <div className={classNames({ [styles.search__results]: true, [styles.show]: this.props.searchResults.length > 0, })}>
+                    {this.props.searchResults.map((result, i) => {
+                        return (<SearchResult index={i} searchResult={result} />)
+                    })}
+                </div>
             </div>
         )
     }
