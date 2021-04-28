@@ -1,5 +1,7 @@
+import { TrendingMovie } from './model/trending-movie';
+
 export interface MoviesState {
     upcomingMovies: any[];
-    trendingMovies: any[];
+    trendingMovies: TrendingMovie[];
     currentMovie: any | null;
 }

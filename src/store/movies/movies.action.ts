@@ -1,3 +1,5 @@
+import { TrendingMovie } from './model/trending-movie';
+
 export const LOAD_UPCOMING_MOVIES = 'LOAD_UPCOMING_MOVIES'
 export const LOAD_UPCOMING_MOVIES_COMPLETED = 'LOAD_UPCOMING_MOVIES_COMPLETED'
 export const LOAD_TRENDING_MOVIES = 'LOAD_TRENDING_MOVIES'
@@ -61,7 +63,7 @@ export function loadTrendingMovies(): MoviesActionTypes {
     }
 }
 
-export function loadTrendingMoviesCompleted(movies: any[]): MoviesActionTypes {
+export function loadTrendingMoviesCompleted(movies: TrendingMovie[]): MoviesActionTypes {
     return {
         type: LOAD_TRENDING_MOVIES_COMPLETED,
         payload: {

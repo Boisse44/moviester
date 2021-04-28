@@ -25,7 +25,7 @@ export function moviesReducer(
         case LOAD_TRENDING_MOVIES:
             return {
                 ...state,
-                trendingMovies: []
+                trendingMovies: [],
             }
         case LOAD_TRENDING_MOVIES_COMPLETED:
             return {

@@ -6,7 +6,7 @@ export default class Header extends React.Component {
     render() {
         return (
             <div className={styles.header}>
-                <span className={styles.header__title}>Moviester</span>
+                <div className={styles.header__logo}></div>
                 <Search />
             </div>
         )

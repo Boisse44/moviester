@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { FC, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { connect, ConnectedProps } from 'react-redux';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { loadTrendingMovies } from '../../store/movies/movies.action';
 import { trendingMovies } from '../../store/movies/movies.selector';
 import { RootState } from '../../store/root-reducer.reducer';
 import styles from './Trending.module.scss';
-
 
 const responsive = {
     superLargeDesktop: {
@@ -28,55 +27,51 @@ const responsive = {
     }
 };
 
-export interface MainProps {
-    trendingMovies: any;
-    loadTrendingMovies: any,
-    history: any
-}
+type TrendingProps = ReduxProps & RouteComponentProps<{}>;
 
+export const Trending: FC<TrendingProps> = ({trendingMovies, loadTrendingMovies, history}) => {
+    const routeChange = (movie: any) => {
+        history.push(`/movie/${movie.id}`);
+    }
 
-class Trending extends React.Component<MainProps> {
-    routeChange = (movie: any) => {
-        this.props.history.push(`/movie/${movie.id}`);
-    }
-    componentWillMount() {
-        this.props.loadTrendingMovies();
-    }
-    render() {
-        return (<div className={styles.upcoming__container}>
+    useEffect(() => {
+        if (trendingMovies.length === 0) {
+            loadTrendingMovies();
+        }
+    }, [trendingMovies.length, loadTrendingMovies]);
+
+    return (
+        <div className={styles.upcoming__container}>
             <Carousel swipeable={false}
                 draggable={false}
                 showDots={false}
                 responsive={responsive}
-                ssr={true} // means to render carousel on server-side.
                 infinite={true}
                 autoPlay={false}
                 autoPlaySpeed={1000}
                 keyBoardControl={true}
-                customTransition="all .5"
-                transitionDuration={500}
                 containerClass="carousel-container"
                 removeArrowOnDeviceType={["tablet", "mobile"]}
                 deviceType="desktop">
-                {this.props.trendingMovies.map((movie, i) => {
+                {trendingMovies.map((movie, i) => {
                     return (
-                        <div key={i} className={styles.trendingItem__container} onClick={() => this.routeChange(movie)}>
+                        <div key={i} className={styles.trendingItem__container} onClick={() => routeChange(movie)}>
+                            <div className={styles.trendingItem__imageContainer}>
+                                <img className={styles.trendingItem__image} alt="upcoming__image" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}></img>
+                            </div>
                             <div className={styles.trendingItem__details}>
-                                <div>
+                                <div className={styles.tredingItem__rating}>
                                     <span className={styles.tredingItem_star}></span>
                                     <span>{movie.vote_average}/10</span>
                                 </div>
-                                <span>{movie.title}</span>
-                            </div>
-                            <div className={styles.trendingItem__imageContainer}>
-                                <img className={styles.trendingItem__image} alt="upcoming__image" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}></img>
+                                <span className={styles.tredingItem__title}>{movie.title}</span>
                             </div>
                         </div>
                     )
                 })}
             </Carousel>
-        </div>)
-    }
+        </div>
+    )
 }
 
 const mapStateToProps = (state: RootState) => ({
@@ -86,4 +81,7 @@ const mapDispatchToProps = {
     loadTrendingMovies: loadTrendingMovies,
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Trending));
+const connector = connect(mapStateToProps, mapDispatchToProps);
+type ReduxProps = ConnectedProps<typeof connector>;
+
+export default withRouter(connector(Trending));

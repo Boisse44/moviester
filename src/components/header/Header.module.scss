@@ -1,14 +1,15 @@
+@import '../../styles/color.module.scss';
+
 .header {
-    background-color: gray;
+    background-color: $main-gray;
     display: flex;
     padding: 12px;
 }
 
-.header__title {
-    font-family: 'BebasNeue-Regular';
-    font-size: 40px;
-    margin-right: 50px;
-    color: white;
+.header__logo {
     margin-right: 10px;
     flex-basis: 400px;
+    background-image: url('../../images/moviester-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
 }

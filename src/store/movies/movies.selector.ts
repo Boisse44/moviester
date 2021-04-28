@@ -1,5 +1,6 @@
 import { createSelector } from 'reselect';
 import { RootState } from '../root-reducer.reducer';
+import { TrendingMovie } from './model/trending-movie';
 import { MoviesState } from './movies.state';
 
 export const movies = (state: RootState): MoviesState => state.movies;
@@ -16,7 +17,7 @@ export const upcomingMovies = createSelector<
 export const trendingMovies = createSelector<
     RootState,
     MoviesState,
-    any[]>(
+    TrendingMovie[]>(
         movies,
         (movies) => movies.trendingMovies,
     );
@@ -24,7 +25,7 @@ export const trendingMovies = createSelector<
 export const currentMovie = createSelector<
     RootState,
     MoviesState,
-    any[]>(
+    any>(
         movies,
         (movies) => movies.currentMovie,
     );
