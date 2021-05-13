@@ -20,7 +20,6 @@ export const Movie: FC<MovieProps> = ({currentMovie, getMovie, match}) => {
     useEffect(() => {
         getMovie(match.params.id);
     }, [match.params.id, getMovie]);
-
     return (
         <div className={styles.movie__container}
             style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${currentMovie?.images.backdrops[0].file_path})` }}>
@@ -51,7 +50,9 @@ export const Movie: FC<MovieProps> = ({currentMovie, getMovie, match}) => {
             </div>
             <div></div>
             <Modal show={showModal} handleClose={() => setShowModal(false)}>
-                <iframe title='movie-trailer' width="420" height="315" src={`https://www.youtube.com/embed/${currentMovie?.videos.results[0].key}`}></iframe>
+                {/* 
+  // @ts-ignore */}
+                <iframe title='movie-trailer' src={`https://www.youtube.com/embed/${currentMovie?.videos.results[0].key}`} frameBorder="0" webkitallowfullscreen="" mozallowfullscreen allowfullscreen></iframe>
             </Modal>
         </div>
     )

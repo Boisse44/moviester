@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
+import Explore from '../explore/Explore.component';
 import Trending from '../trending/Trending';
 import styles from './Home.module.scss';
 
-class Home extends React.Component {
-    render() {
-        return (
-            <div>
-                    <div className={styles.home__container}>
-                        <Trending />
-                    </div>
+const Home: FC = () => {
+    return (
+        <div>
+            <div className={styles.home__container}>
+                <Trending />
+                <Explore />
             </div>
-        )
-    }
+        </div>
+    )
 }
 export default Home;
