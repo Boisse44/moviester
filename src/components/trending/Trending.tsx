@@ -5,6 +5,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { loadTrendingMovies } from '../../store/movies/movies.action';
 import { trendingMovies } from '../../store/movies/movies.selector';
 import { RootState } from '../../store/root-reducer.reducer';
+import Score from '../score/Score.component';
 import styles from './Trending.module.scss';
 
 const responsive = {
@@ -60,10 +61,7 @@ export const Trending: FC<TrendingProps> = ({trendingMovies, loadTrendingMovies,
                                 <img className={styles.trendingItem__image} alt="upcoming__image" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}></img>
                             </div>
                             <div className={styles.trendingItem__details}>
-                                <div className={styles.tredingItem__rating}>
-                                    <span className={styles.tredingItem_star}></span>
-                                    <span>{movie.vote_average}/10</span>
-                                </div>
+                                <Score score={movie.vote_average} />
                                 <span className={styles.tredingItem__title}>{movie.title}</span>
                             </div>
                         </div>

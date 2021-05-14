@@ -13,10 +13,13 @@ export const SearchResult: FC<SearchResultProps> = ({index, searchResult, histor
     }
     return (
         <div key={index} className={styles.result__container} onClick={() => routeChange(searchResult)}>
-            <span>
+            <div>
                 <img className={styles.result__image} alt="upcoming__image" src={`https://image.tmdb.org/t/p/original${searchResult.poster_path}`}></img>
-            </span>
-            <span>{searchResult.original_title}</span>
+            </div>
+            <div className={styles.result__details}>
+                <span className={styles.result__title}>{searchResult.original_title}</span>
+                <span>{searchResult.release_date.split('-')[0]}</span>
+            </div>
         </div>
     )
 

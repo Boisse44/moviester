@@ -46,14 +46,3 @@
 .tredingItem__title{
     @extend .small-title;
 }
-
-.tredingItem__rating{
-    margin-bottom: 20px;
-}
-
-.tredingItem_star {
-    margin-right: 8px;
-    &::before {
-        content: '\2B50';
-    }
-}

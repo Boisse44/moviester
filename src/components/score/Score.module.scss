@@ -1,0 +1,10 @@
+.score__container{
+    margin-bottom: 20px;
+}
+
+.score__star {
+    margin-right: 6px;
+    &::before {
+        content: '\2B50';
+    }
+}

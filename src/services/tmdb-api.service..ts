@@ -7,7 +7,7 @@ const language: string = 'en-US'
 
 // Ressources URLs
 const movieResourceUrl: string = '/movie';
-const searchResourceUrl: string = '/search';
+const searchResourceUrl: string = '/search/movie';
 const trendingResourceUrl: string = '/trending';
 const genreResourceUrl: string = '/genre';
 
@@ -32,7 +32,7 @@ export const getTrendingMovies = (): Promise<AxiosResponse> => {
 
 // Search
 export const searchMulti = (keyword: string): Promise<AxiosResponse> => {
-    return instance.get(`${baseUrl}${searchResourceUrl}/multi?query=${keyword}`);
+    return instance.get(`${baseUrl}${searchResourceUrl}?query=${keyword}`);
 }
 
 // Genre

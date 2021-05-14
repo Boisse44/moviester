@@ -1,6 +1,29 @@
+@import '../../styles/color.module.scss';
+@import '../../styles/text.module.scss';
+
+
 .result__container {
+    display: flex;
+    padding: 8px;
+
+    &:not(:first-child) {
+        border-top: 1px solid $main-black;
+    }
 }
 
+.result__details {
+    @extend .micro;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    margin: 5px 16px 0;
+}
+
+.result__title {
+    @extend .label-alternate;
+    color: $logo-white;
+    margin-bottom: 5px;
+}
 .result__image {
     width: 50px;
     cursor: pointer;

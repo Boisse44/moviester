@@ -3,7 +3,8 @@ import { SEARCH, SearchActionTypes, SEARCH_COMPLETED } from './search.action'
 import { SearchState } from './search.state'
 
 const initialState: SearchState = {
-    results: []
+    results: [],
+    isLoading: false,
 }
 
 export function searchReducer(
@@ -13,15 +14,21 @@ export function searchReducer(
     switch (action.type) {
         case SEARCH:
             return {
+                ...state,
+                isLoading: true,
                 results: []
             }
         case SEARCH_COMPLETED:
             return {
-                results: action.payload.results
+                ...state,
+                isLoading: false,
+                results: action.payload.results.filter(result => !!result.poster_path)
             }
         case GET_MOVIE:
         case LOAD_TRENDING_MOVIES:
             return {
+                ...state,
+                isLoading: false,
                 results: []
             }
         default:
