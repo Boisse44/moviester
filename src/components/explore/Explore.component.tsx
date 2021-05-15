@@ -12,7 +12,7 @@ enum ExploreCategory {
 };
 
 const Explore: FC = () => {
-    const [exploreCategory, setExploreCategory] = useState(ExploreCategory.Latest);
+    const [exploreCategory, setExploreCategory] = useState(ExploreCategory.ComingSoon);
 
     return (
         <div className={styles.explore__container}>

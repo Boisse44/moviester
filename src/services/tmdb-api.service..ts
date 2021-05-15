@@ -21,7 +21,7 @@ instance.defaults.params['language'] = language;
 
 // Movies
 export const getUpcomingMovies = (): Promise<AxiosResponse> => {
-    return instance.get(`${baseUrl}${movieResourceUrl}/upcoming`);
+    return instance.get(`${baseUrl}${movieResourceUrl}/upcoming?region=US`);
 }
 export const getMovie = (id: string): Promise<AxiosResponse> => {
     return instance.get(`${baseUrl}${movieResourceUrl}/${id}?append_to_response=credits,videos,images,reviews&include_image_language=en,null`);

@@ -20,7 +20,7 @@ export function moviesReducer(
         case LOAD_UPCOMING_MOVIES_COMPLETED:
             return {
                 ...state,
-                upcomingMovies: action.payload.movies
+                upcomingMovies: action.payload.movies.filter(movie => Date.parse(movie.release_date) > Date.parse(new Date().toISOString().slice(0, 10)))
             }
         case LOAD_TRENDING_MOVIES:
             return {

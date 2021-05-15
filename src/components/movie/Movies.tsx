@@ -52,7 +52,7 @@ export const Movie: FC<MovieProps> = ({currentMovie, getMovie, match}) => {
             <Modal show={showModal} handleClose={() => setShowModal(false)}>
                 {/* 
   // @ts-ignore */}
-                <iframe title='movie-trailer' src={`https://www.youtube.com/embed/${currentMovie?.videos.results[0].key}`} frameBorder="0" webkitallowfullscreen="" mozallowfullscreen allowfullscreen></iframe>
+                <iframe title='movie-trailer' src={`https://www.youtube.com/embed/${currentMovie?.videos.results[0].key}`} frameBorder="0"></iframe>
             </Modal>
         </div>
     )

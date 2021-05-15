@@ -1,0 +1,24 @@
+.upcomingItem__container {
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+}
+
+.upcomingItem__imageContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.upcomingItem__image {
+    width: 100%;
+    height: 100%;
+}
+
+.upcomingItem__details {
+    position: absolute;
+    z-index: 2;
+    padding: 12px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
