@@ -1,6 +1,7 @@
 # Moviester
 
 A simple web application for searching information about movies powered by TMDB API using React, Redux and Typescript.
+**THIS IS A WORK IN PROGRESS**
 
 ![image](https://user-images.githubusercontent.com/5862762/118343827-342aab00-b4f9-11eb-816c-550e26e31553.png)
 
