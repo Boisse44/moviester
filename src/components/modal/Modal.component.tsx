@@ -6,9 +6,7 @@ const Modal = ({ handleClose, show, children }) => {
     <div className={`${styles.modal} ${show ? styles.displayBlock : styles.displayNone}`}>
       <section className={styles.modalMain}>
         {children}
-        <button type="button" onClick={handleClose}>
-          Close
-        </button>
+        <button className={styles.closeButton} type="button" onClick={handleClose}>Close</button>
       </section>
     </div>
   );

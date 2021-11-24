@@ -18,7 +18,7 @@ export const SearchResult: FC<SearchResultProps> = ({index, searchResult, histor
             </div>
             <div className={styles.result__details}>
                 <span className={styles.result__title}>{searchResult.original_title}</span>
-                <span>{searchResult.release_date.split('-')[0]}</span>
+                <span>{searchResult.release_date ? searchResult.release_date.split('-')[0] : 'TBD'}</span>
             </div>
         </div>
     )

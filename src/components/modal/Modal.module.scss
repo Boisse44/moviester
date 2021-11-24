@@ -24,6 +24,13 @@
 .displayNone {
     display: none;
 }
+.closeButton {
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    top: 50px;
+    cursor: pointer;
+}
 iframe {
     position: fixed;
     right: 0;

@@ -5,6 +5,9 @@
     display: flex;
     padding: 12px;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 15;
 }
 
 .header__logo {
@@ -13,6 +16,7 @@
     background-image: url('../../images/moviester-logo.png');
     background-size: contain;
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .header__repo {
