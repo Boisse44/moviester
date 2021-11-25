@@ -7,7 +7,7 @@ function* fetchMovie(action) {
         const movie = yield call(getMovie, action.id);
         yield put(getMovieCompleted(movie.data));
     } catch (e) {
-        console.log('error');
+        console.log('error: ', e);
     }
 }
 

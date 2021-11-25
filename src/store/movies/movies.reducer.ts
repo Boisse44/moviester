@@ -1,3 +1,4 @@
+import { convert } from './model/current-movie-converter'
 import { GET_MOVIE, GET_MOVIE_COMPLETED, LOAD_TRENDING_MOVIES, LOAD_TRENDING_MOVIES_COMPLETED, LOAD_UPCOMING_MOVIES, LOAD_UPCOMING_MOVIES_COMPLETED, MoviesActionTypes } from './movies.action'
 import { MoviesState } from './movies.state'
 
@@ -40,7 +41,7 @@ export function moviesReducer(
         case GET_MOVIE_COMPLETED:
             return {
                 ...state,
-                currentMovie: action.payload.movie
+                currentMovie: convert(action.payload.movie)
             }
         default:
             return state

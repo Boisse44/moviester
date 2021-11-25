@@ -24,7 +24,7 @@ export const Movie: FC<MovieProps> = ({currentMovie, getMovie, match}) => {
     }, [match.params.id, getMovie]);
 
     return (
-        <div className={styles.movie__container} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${currentMovie?.images.backdrops[0].file_path})` }}>
+        <div className={styles.movie__container} style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${currentMovie?.background})` }}>
             <MovieInfo currentMovie={currentMovie}/>
             <MovieCast currentMovie={currentMovie}/>
             <button className={styles.play} onClick={() => setShowModal(true)}><PlayButton></PlayButton></button>
@@ -32,7 +32,7 @@ export const Movie: FC<MovieProps> = ({currentMovie, getMovie, match}) => {
                 {/* 
                     // @ts-ignore 
                 */}
-                <iframe title='movie-trailer' src={`https://www.youtube.com/embed/${currentMovie?.videos.results[0].key}`} frameBorder="0"></iframe>
+                <iframe title='movie-trailer' src={`https://www.youtube.com/embed/${currentMovie?.trailer}`} frameBorder="0"></iframe>
             </Modal>
         </div>
     )

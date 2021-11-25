@@ -10,7 +10,7 @@ export const MovieCast: FC<MovieCastProps> = ({currentMovie}) => {
         <div className={styles.cast}>
         <div>Cast</div>
         <div className={styles.cast__list}>
-            {currentMovie?.credits.cast
+            {currentMovie?.cast
                 .filter(credit => credit.profile_path !== null)
                 .slice(0, 6)
                 .map(credit =>

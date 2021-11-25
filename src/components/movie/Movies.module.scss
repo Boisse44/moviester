@@ -60,7 +60,7 @@
     fill: white;
     opacity: 0.75;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     border: none;
@@ -70,4 +70,36 @@
         fill: $main-purple;
         transition: all .3s;
     }
+}
+
+.overview {
+    max-width: 50%;
+    margin: 20px 0;
+}
+
+.runtime {
+    max-width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.runtime__info {
+    background-color: $main-purple;
+    color: white;
+    border-radius: 2px;
+    padding: 4px;
+}
+
+.release_date {
+    max-width: 40%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.tagline {
+    display: inline-block;
+    background-color: $main-purple;
+    padding: 4px;
+    border-radius: 2px;
 }
